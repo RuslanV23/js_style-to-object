@@ -7,7 +7,7 @@
  */
 function convertToObject(sourceString) {
   const splitString = sourceString.split(';');
-  const object = splitString.reduce((prev, item) => {
+  const cssProperties = splitString.reduce((prev, item) => {
     const [param, value] = item.split(':');
 
     if (!param || !value) {
@@ -17,7 +17,7 @@ function convertToObject(sourceString) {
     return { ...prev, [param.trim()]: value.trim() };
   }, {});
 
-  return object;
+  return cssProperties;
 }
 
 module.exports = convertToObject;
